@@ -3,8 +3,8 @@ const dynamicCacheName = 'd-app-v1'
 const assetUrls = [
     'index.html',
     'offline.html',
-    '/js/app.js',
-    '/css/style.css'
+    'js/app.js',
+    'css/style.css'
 ]
 
 self.addEventListener('install', async event => {
@@ -45,6 +45,6 @@ const networkFirst = async (request) => {
         return response
     } catch (error) {
         const cached = await cache.match(request)
-        return cached ?? await caches.match('/offline.html')
+        return cached ?? await caches.match('offline.html')
     }
 } 
